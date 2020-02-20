@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final_server
+  labels:
+    app: final_server
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final_server
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: final_server
+    spec:
+      containers:
+      - image: huangx78/final_server:latest
+        imagePullPolicy: Always
+        name: final_server
+        ports:
+        - containerPort: 4000
+          protocol: TCP
