@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: final_client
+  name: final-client
   labels:
     app: final_client
   namespace: default
@@ -9,7 +9,7 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: final_client
+      app: final-client
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: final_client
+        app: final-client
     spec:
       containers:
       - image: huangx78/final_client:latest
         imagePullPolicy: Always
-        name: final_client
+        name: final-client
         ports:
         - containerPort: 3000
           protocol: TCP
