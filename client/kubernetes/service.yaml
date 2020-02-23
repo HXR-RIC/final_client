@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: final-client
+  name: final-client-service
 spec:
   selector:
-    app: final_client
+    app: final-client
   type: LoadBalancer
   ports:
-   -  protocol: TCP
-      port: 80
+   -  name: final-client-port
+      port: 3000
       targetPort: 3000
