@@ -10,18 +10,18 @@ spec:
   selector:
     matchLabels:
       app: final-server
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+  #strategy:
+  #  rollingUpdate:
+  #    maxSurge: 25%
+  #    maxUnavailable: 25%
+  #  type: RollingUpdate
   template:
     metadata:
       labels:
         app: final-server
     spec:
       containers:
-      - image: huangx78/final_server:latest
+      - image: docker.io/huangx78/final_server:latest
         imagePullPolicy: Always
         name: final-server
         ports:
