@@ -10,8 +10,6 @@ services:
       - ${APP_SERVER_PORT}
     ports:
       - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
-    #volumes:
-    #  - ./server/src:/usr/src/app/apollo-gql-server/src/
     command: npm run start
 
   client:
@@ -22,9 +20,6 @@ services:
       - ${REACT_APP_PORT}
     ports:
       - ${REACT_APP_PORT}:${REACT_APP_PORT}
-    #volumes:
-    #  - ./client/src:/usr/src/app/apollo-gql-client/src/
-    #  - ./client/src:/usr/src/app/apollo-gql-client/public/
     links:
       - server
     command: npm run start  

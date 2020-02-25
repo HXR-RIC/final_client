@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: final-client-deployment
-  #labels:
-  #  app: final_client
-  #namespace: default
+  name: frontend-deployment
+  labels:
+    app: frontend
+  namespace: default
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: final-client
-  #strategy:
-  #  rollingUpdate:
-  #    maxSurge: 25%
-  #    maxUnavailable: 25%
-  #  type: RollingUpdate
+      app: frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: final-client
+        app: frontend
     spec:
       containers:
-      - image: docker.io/huangx78/final_client:latest
-        #imagePullPolicy: Always
-        name: final-client-container
+      - image: huangx78/final_client
+        imagePullPolicy: Always
+        name: frontend-container
         ports:
-        - containerPort: 3000
-          #protocol: TCP
+        - containerPort: 80
+          protocol: TCP
