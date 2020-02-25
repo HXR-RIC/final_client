@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: final-server
+  name: backend-deployment
   labels:
-    app: final-server
+    app: backend
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: final-server
-  #strategy:
-  #  rollingUpdate:
-  #    maxSurge: 25%
-  #    maxUnavailable: 25%
-  #  type: RollingUpdate
+      app: backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: final-server
     spec:
       containers:
-      - image: docker.io/huangx78/final_server:latest
+      - image: huangx78/final_server
         imagePullPolicy: Always
-        name: final-server
+        name: backend-container
         ports:
         - containerPort: 80
           protocol: TCP

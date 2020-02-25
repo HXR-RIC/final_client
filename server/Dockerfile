@@ -1,4 +1,6 @@
 FROM node:latest
+ARG NODE=production
+ENV NODE_ENV ${NODE}
 RUN mkdir -p /usr/src/app/apollo-gql-server
 WORKDIR /usr/src/app/apollo-gql-server
 
