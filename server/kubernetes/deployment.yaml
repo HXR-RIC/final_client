@@ -25,5 +25,5 @@ spec:
         imagePullPolicy: Always
         name: final-server
         ports:
-        - containerPort: 4000
+        - containerPort: 80
           protocol: TCP
