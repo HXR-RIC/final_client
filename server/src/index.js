@@ -38,6 +38,7 @@ const context = async ({ req }) => {
 
 // Set up Apollo Server
 const server = new ApolloServer({
+  cors: true,
   typeDefs,
   resolvers,
   dataSources,
