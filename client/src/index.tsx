@@ -18,7 +18,7 @@ const cache = new InMemoryCache();
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://localhost:4000',
+    uri: 'http://ac0de884b590311eaa8c2167bd1af9c4-38246079.us-east-1.elb.amazonaws.com/graphql',
     headers: {
       authorization: localStorage.getItem('token'),
       'client-name': 'Space Explorer [web]',
